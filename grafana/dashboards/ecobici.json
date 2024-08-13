@@ -1,0 +1,452 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 1,
+    "links": [],
+    "panels": [
+      {
+        "datasource": {
+          "type": "yesoreyeram-infinity-datasource",
+          "uid": "yesoreyeram-infinity-datasource"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "custom": {
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 15,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 5,
+        "interval": "30s",
+        "options": {
+          "basemap": {
+            "config": {},
+            "name": "Layer 0",
+            "type": "default"
+          },
+          "controls": {
+            "mouseWheelZoom": true,
+            "showAttribution": true,
+            "showDebug": false,
+            "showMeasure": false,
+            "showScale": false,
+            "showZoom": true
+          },
+          "layers": [
+            {
+              "config": {},
+              "name": "OSM",
+              "opacity": 1,
+              "tooltip": true,
+              "type": "osm-standard"
+            },
+            {
+              "config": {
+                "showLegend": false,
+                "style": {
+                  "color": {
+                    "fixed": "dark-green"
+                  },
+                  "opacity": 0.5,
+                  "rotation": {
+                    "fixed": 0,
+                    "max": 360,
+                    "min": -360,
+                    "mode": "mod"
+                  },
+                  "size": {
+                    "fixed": 5,
+                    "max": 15,
+                    "min": 2
+                  },
+                  "symbol": {
+                    "fixed": "img/icons/marker/circle.svg",
+                    "mode": "fixed"
+                  },
+                  "symbolAlign": {
+                    "horizontal": "center",
+                    "vertical": "center"
+                  },
+                  "textConfig": {
+                    "fontSize": 12,
+                    "offsetX": 0,
+                    "offsetY": 0,
+                    "textAlign": "center",
+                    "textBaseline": "middle"
+                  }
+                }
+              },
+              "location": {
+                "mode": "auto"
+              },
+              "name": "Marker",
+              "tooltip": true,
+              "type": "markers"
+            }
+          ],
+          "tooltip": {
+            "mode": "details"
+          },
+          "view": {
+            "allLayers": false,
+            "id": "coords",
+            "lastOnly": false,
+            "lat": -34.611901,
+            "layer": "Layer 1",
+            "lon": -58.451238,
+            "zoom": 13.57
+          }
+        },
+        "pluginVersion": "11.1.3",
+        "targets": [
+          {
+            "columns": [
+              {
+                "selector": "name",
+                "text": "Station Name",
+                "type": "string"
+              },
+              {
+                "selector": "lat",
+                "text": "Latitude",
+                "type": "number"
+              },
+              {
+                "selector": "lon",
+                "text": "Longitude",
+                "type": "number"
+              },
+              {
+                "selector": "address",
+                "text": "Address",
+                "type": "number"
+              },
+              {
+                "selector": "post_code",
+                "text": "Post Code",
+                "type": "string"
+              },
+              {
+                "selector": "capacity",
+                "text": "Capacity",
+                "type": "string"
+              }
+            ],
+            "datasource": {
+              "type": "yesoreyeram-infinity-datasource",
+              "uid": "yesoreyeram-infinity-datasource"
+            },
+            "filters": [],
+            "format": "table",
+            "global_query_id": "",
+            "json_options": {
+              "columnar": true
+            },
+            "parser": "backend",
+            "refId": "A",
+            "root_selector": "data.stations",
+            "source": "url",
+            "type": "json",
+            "url": "https://buenosaires.publicbikesystem.net/customer/ube/gbfs/v1/en/station_information",
+            "url_options": {
+              "data": "",
+              "method": "GET"
+            }
+          }
+        ],
+        "title": "Station Information",
+        "type": "geomap"
+      },
+      {
+        "datasource": {
+          "type": "yesoreyeram-infinity-datasource",
+          "uid": "yesoreyeram-infinity-datasource"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 15
+        },
+        "id": 2,
+        "interval": "30s",
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "percentChangeColorMode": "standard",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showPercentChange": false,
+          "textMode": "auto",
+          "wideLayout": true
+        },
+        "pluginVersion": "11.1.3",
+        "targets": [
+          {
+            "columns": [
+              {
+                "selector": "station_id",
+                "text": "Station",
+                "type": "string"
+              },
+              {
+                "selector": "num_bikes_available",
+                "text": "Bikes Available",
+                "type": "number"
+              },
+              {
+                "selector": "num_docks_available",
+                "text": "Docks Available",
+                "type": "number"
+              },
+              {
+                "selector": "num_docks_disabled",
+                "text": "Docks Disabled",
+                "type": "number"
+              },
+              {
+                "selector": "is_charging_station",
+                "text": "Charging",
+                "type": "string"
+              },
+              {
+                "selector": "status",
+                "text": "Status?",
+                "type": "string"
+              },
+              {
+                "selector": "is_installed",
+                "text": "Installed?",
+                "type": "boolean"
+              },
+              {
+                "selector": "is_renting",
+                "text": "Renting?",
+                "type": "boolean"
+              },
+              {
+                "selector": "is_returning",
+                "text": "Returning?",
+                "type": "boolean"
+              },
+              {
+                "selector": "traffic",
+                "text": "Traffic?",
+                "type": "string"
+              }
+            ],
+            "datasource": {
+              "type": "yesoreyeram-infinity-datasource",
+              "uid": "yesoreyeram-infinity-datasource"
+            },
+            "filters": [],
+            "format": "table",
+            "global_query_id": "",
+            "json_options": {
+              "columnar": true
+            },
+            "parser": "backend",
+            "refId": "A",
+            "root_selector": "data.stations",
+            "source": "url",
+            "type": "json",
+            "url": "https://buenosaires.publicbikesystem.net/customer/ube/gbfs/v1/en/station_status",
+            "url_options": {
+              "data": "",
+              "method": "GET"
+            }
+          }
+        ],
+        "title": "Station Status",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "yesoreyeram-infinity-datasource",
+          "uid": "yesoreyeram-infinity-datasource"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 15
+        },
+        "id": 4,
+        "interval": "30s",
+        "options": {
+          "displayMode": "lcd",
+          "maxVizHeight": 300,
+          "minVizHeight": 16,
+          "minVizWidth": 8,
+          "namePlacement": "top",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showUnfilled": true,
+          "sizing": "manual",
+          "valueMode": "text"
+        },
+        "pluginVersion": "11.1.3",
+        "targets": [
+          {
+            "columns": [
+              {
+                "selector": "name",
+                "text": "Name",
+                "type": "string"
+              },
+              {
+                "selector": "_station_count",
+                "text": "Stations",
+                "type": "number"
+              },
+              {
+                "selector": "_vehicle_count._ebike_count",
+                "text": "Ebikes",
+                "type": "number"
+              },
+              {
+                "selector": "_vehicle_count._mechanical_count",
+                "text": "Mechanical Bikes",
+                "type": "number"
+              }
+            ],
+            "datasource": {
+              "type": "yesoreyeram-infinity-datasource",
+              "uid": "yesoreyeram-infinity-datasource"
+            },
+            "filters": [],
+            "format": "table",
+            "global_query_id": "",
+            "json_options": {
+              "columnar": true
+            },
+            "parser": "backend",
+            "refId": "A",
+            "root_selector": "data",
+            "source": "url",
+            "type": "json",
+            "url": "https://buenosaires.publicbikesystem.net/customer/ube/gbfs/v1/en/system_information",
+            "url_options": {
+              "data": "",
+              "method": "GET"
+            }
+          }
+        ],
+        "title": "System Information",
+        "type": "bargauge"
+      }
+    ],
+    "refresh": "30s",
+    "schemaVersion": 39,
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-5m",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "browser",
+    "title": "Ecobici",
+    "uid": "ecobici",
+    "version": 13,
+    "weekStart": ""
+  }

@@ -1,0 +1,46 @@
+plugins: 
+  - yesoreyeram-infinity-datasource
+serviceAccount:
+  create: false
+persistence:
+  type: pvc
+  enabled: false
+  # storageClassName: standard
+  accessModes:
+    - ReadWriteOnce
+  size: 2Gi
+adminUser: gbfs-admin
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources: 
+    - name: Infinity Datasource
+      type: yesoreyeram-infinity-datasource
+      uid: yesoreyeram-infinity-datasource
+      editable: true
+      isDefault: false
+      basicAuth: false
+      readOnly: false
+      orgId: 1
+      jsonData:
+        global_queries: []
+dashboardProviders: 
+ dashboardproviders.yaml:
+   apiVersion: 1
+   providers:
+   - name: 'default'
+     orgId: 1
+     folder: 'GBFS Providers'
+     type: file
+     disableDeletion: false
+     editable: true
+     options:
+       path: /var/lib/grafana/dashboards/default
+dashboards:
+  default:
+    careem:
+      file: dashboards/careem.json
+    ecobici:
+      file: dashboards/ecobici.json
+    nordelta:
+      file: dashboards/nordelta.json
