@@ -23,9 +23,13 @@ jobs:
           kubectl create ns monitoring
           helm install -f grafana/values-production.yaml grafana grafana -n=monitoring
           kubectl wait --for=condition=ready pod -l app.kubernetes.io/name=grafana -n=monitoring
-      - name: Test service URLs
+      - name: List service URLs
         run: |
           minikube service list
-          minikube service grafana --url -n=monitoring
-          echo -n "------------------opening the service------------------"
-          curl $(minikube service grafana --url -n=monitoring)/version
+      - name: Expose service
+        run: |
+          export POD_NAME=$(kubectl get pods --namespace monitoring -l "app.kubernetes.io/name=grafana,app.kubernetes.io/instance=grafana" -o jsonpath="{.items[0].metadata.name}")
+          kubectl --namespace monitoring port-forward $POD_NAME 3000
+      - name: Call service URL
+        run: |
+          curl http://localhost:3000
