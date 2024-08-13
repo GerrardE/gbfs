@@ -1,4 +1,5 @@
 # GBFS Visualizer
+<img alt="sample dashboard" width="800px" src="docs/sample.png" />
 
 ## Description
 
