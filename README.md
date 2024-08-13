@@ -7,7 +7,7 @@ GBFS is a simple standard for publishing bike sharing feeds. https://github.com/
 
 ## Architecture Overview
 
-<center><img alt="architecture_overview" width="600px" src="docs/architecture.png" /></center>
+<img alt="architecture_overview" width="600px" src="docs/architecture.png" />
 
 The project is designed in such a way that it integrates the json files as a datasource from the gbfs providers with the help of Grafana and refreshes every 30s. Each dashboard is designed and packaged using the helm package manager to install on any kubernetes platform. The stats being considered includes:
 
