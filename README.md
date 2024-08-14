@@ -39,8 +39,9 @@ The project assumes you have a working installation of the dependencies listed a
 
 * Clone this repository:
 ```
-git clone 
+git clone https://github.com/GerrardE/gbfs.git
 ```
+
 * Ensure docker is running on your PC
 * Start a kubernetes instance:
 ```
