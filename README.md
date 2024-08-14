@@ -18,6 +18,8 @@ The project is designed in such a way that it integrates the json files as a dat
 
 Dashboards are configured as code, and new ones can be created by making a copy of any dashboard within `.grafana/dashboards/*.json`, replacing the the title of the dashboard, urls of the system information, station status and station information and running the upgrade command specified in the `Upgrades` section below.
 
+A simple pipeline has been configured using github actions to spinup a minikube instance to install the charts, test the endpoint and teardown on each push to the repository.
+
 ## Getting Started
 
 ### Dependencies
